@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 
 _c = 25
+css1 = ['DarkBlue','DarkGray','DarkKhaki', 'DarkOrange', 'DarkSalmon',
+                'DarkSlateGray', 'DarkViolet', 'DimGray', 'Firebrick', 'Fuchsia',
+                'Gold', 'DeepPink', 'Green', 'Cyan', 'Orchid',
+                'Tomato', 'NavajoWhite', 'CadetBlue', 'DarkOliveGreen','PaleVioletRed',
+                'YellowGreen','DarkTurquoise','GoldenRod', 'LightSeaGreen','LightSeaGreen']
+
 class character_colours():
     sol = 0xD45B47
     el = 0xFDF3BD
@@ -28,7 +34,7 @@ class character_colours():
     bedman = 0xEF377B
     jacko = 0xED9A00
     jam = 0xFF614C
-
+"""
 class mathplotlib_colour():
     import matplotlib, random
 
@@ -45,10 +51,4 @@ class mathplotlib_colour():
     # getting random color from list of hex colors
 
     print(random.choice(hex_colors_only))
-
-class css_colour():
-    css1 = ['DarkBlue','DarkGray','DarkKhaki', 'DarkOrangem', 'DarkSalmon',
-            'DarkSlateGray', 'DarkViolet', 'DimGray', 'Firebrick', 'Fuchsia',
-            'Gold', 'DeepPink', 'Green', 'Cyan', 'Orchid',
-            'Tomato', 'NavajoWhite', 'CadetBlue', 'DarkOliveGreen','PaleVioletRed',
-            'YellowGreen','DarkTurquoise','GoldenRod', 'LightSeaGreen','LightSeaGreen']
+"""
