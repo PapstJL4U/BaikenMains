@@ -1,14 +1,27 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-
 _c = 25
-css1 = ['DarkBlue','DarkGray','DarkKhaki', 'DarkOrange', 'DarkSalmon',
+
+def red_on_gray():
+    colours = ['lightslategray', ] * _c
+    for i in range(24):
+        if (i % 2) == 0:
+            colours[i] = 'slategray'
+    colours[2] = 'darksalmon'
+
+    return colours
+
+def css1():
+    css1 = ['DarkBlue','DarkGray','DarkKhaki', 'DarkOrange', 'DarkSalmon',
                 'DarkSlateGray', 'DarkViolet', 'DimGray', 'Firebrick', 'Fuchsia',
                 'Gold', 'DeepPink', 'Green', 'Cyan', 'Orchid',
                 'Tomato', 'NavajoWhite', 'CadetBlue', 'DarkOliveGreen','PaleVioletRed',
-                'YellowGreen','DarkTurquoise','GoldenRod', 'LightSeaGreen','LightSeaGreen']
+                'YellowGreen','DarkTurquoise','GoldenRod', 'LightSeaGreen','Coral']
+    if len(css1) != _c:
+        raise("not enough colours for every character!")
+    return css1
 
-class character_colours():
+def character_colours():
     sol = 0xD45B47
     el = 0xFDF3BD
     kum = 0x393750
@@ -35,7 +48,7 @@ class character_colours():
     jacko = 0xED9A00
     jam = 0xFF614C
 """
-class mathplotlib_colour():
+def mathplotlib_colour():
     import matplotlib, random
 
     hex_colors_dic = {}
