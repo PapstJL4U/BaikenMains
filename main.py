@@ -59,12 +59,17 @@ def generate_h_graph_unique_colour(data_format, characters, percentage=True):
             x=data_format[charsi],
             orientation='h',
             name=charsi,
+            text=charsi,
+            textposition='auto',
             marker_color=colours[i],
             hoverinfo="name+x",
         ))
     fig.update_layout(barmode='stack', title_text='Character Usage in %',yaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent")
     fig.show()
+    fig.write_html("exports/generate_h_graph_unique_colour_"+str(percentage)+".html")
+    with open("exports/generate_h_graph_unique_colour_"+str(percentage)+".png", "wb") as f:
+        f.write(fig.to_image(format="png", engine="kaleido", width=1920, height=1080))
 
 def generate_h_graph(data_format, characters, percentage=True):
     "generate horizontal graph with plotly default colours"
@@ -101,8 +106,9 @@ def generate_v_graph(data_format, characters, percentage=True):
 
 if __name__ == "__main__":
     d, c = get_plotly_data()
-    generate_h_graph(d,c)
-    generate_h_graph(d,c,False)
+    #generate_h_graph(d,c)
+    #generate_h_graph(d,c,False)
     #generate_h_graph_red_on_gray(d,c)
     #generate_h_graph_red_on_gray(d,c, False)
     #generate_v_graph(d,c)
+    generate_h_graph_unique_colour(d,c)
