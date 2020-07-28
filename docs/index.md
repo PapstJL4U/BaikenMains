@@ -1,8 +1,8 @@
 # **Hello**
 
-Let's take a look at the characters:
+Let's take a look at characters.
 
-The first graphs show the amount a character is played during a a data node. The second set of graphs shows the absolut quantity a character is played, e.x. 13% Baiken and 5 Baikens.
+The first graphs show the amount a character is played during a data node. The second set of graphs shows the absolut quantity a character is played, e.x. 13% Baiken and 5 Baikens.
 
 Data node: I counted the characters, when looking for Player matches (lobbies). Limits: full lobbies are not shown, private lobbies are not show and my data collections is sporadic and EU-centered.
 
