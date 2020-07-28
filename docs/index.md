@@ -13,10 +13,10 @@ Data node: I tallied the characters, when looking for Player matches (lobbies). 
 https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html vs https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_False.html
 
 
-[Unique Colours %](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.html) vs [Plotly Colours](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_False.html)
+[Unique Colours %](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.html) vs [Plotly Colours](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_False.html)
 
 
-[Red on Gray Colours %](papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.html) vs [Plotly Colours](papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_colours_False.html)
+[Red on Gray Colours %](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.html) vs [Plotly Colours](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_colours_False.html)
 
 ## Horizontal Display
 
