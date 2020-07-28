@@ -18,14 +18,16 @@ def get_csv():
             print(dic)
 
 def get_plotly_data():
+    """reads csv from a the local file local_data.csv into a data_format and characters."""
     try:
         data_format = pd.read_csv("local_data.csv")
-        data_format = data_format[:-1]
-        del data_format["daily sum"]
-        data_format['date'] = data_format['date'] + " " + data_format['time']
-        data_format['date'] = data_format['date'].astype('datetime64[ns]')
-        del data_format["time"]
 
+        """ # plotly can not skip empty dates and cant format category for fuck all reason... we work with string dates....
+        data_format['date'] = data_format['date'] + " " + data_format['time']
+        #data_format['date'] = pd.to_datetime(data_format['date'].astype('datetime64[ns]'))
+        """
+        del data_format["time"]
+        #print(data_format['date'])
         characters = data_format.keys()[1:].sort_values()
         return data_format,characters
 
@@ -80,7 +82,9 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
         ))
 
     fig.update_layout(barmode='stack', title_text='Character Usage', yaxis_type='category',
-    xaxis_title="Sample Size", yaxis_title="Sample Dates", legend_title="Characters")
+                      yaxis_categoryorder='category ascending',
+                      xaxis_title="Sample Size", yaxis_title="Sample Dates", legend_title="Characters",
+                      )
 
     if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
 
@@ -112,7 +116,6 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
     for i, charsi in enumerate(characters):
 
         ziplist = []
-        #ziplist = list(zip(cycle([charsi]), data_format[charsi]))
         for z in list(zip(cycle([charsi]), data_format[charsi])):
             f = "{:.0f}".format(z[1])
             ziplist.append(f +" " + z[0])
@@ -129,7 +132,9 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
         ))
 
     fig.update_layout(barmode='stack', title_text='Character Usage', xaxis_type='category',
-                      yaxis_title="Sample Size", xaxis_title="Sample Dates", legend_title="Characters")
+                      xaxis_categoryorder='category ascending',
+                      yaxis_title="Sample Size", xaxis_title="Sample Dates", legend_title="Characters",
+                      )
 
     if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
 
@@ -158,4 +163,4 @@ if __name__ == "__main__":
 
     generate_v_graph(d, c, False, 'rog')
     generate_v_graph(d, c, False, 'css1')
-    generate_v_graph(d, c, True, 'dft')
+    generate_v_graph(d, c, False, 'dft')
