@@ -10,7 +10,7 @@ Data node: I tallied the characters, when looking for Player matches (lobbies). 
 
 ### Horizontal
 
-[Plotly Colours in %](papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html) vs [Plotly Colours](papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_False.html)
+papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html vs papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_False.html
 
 
 [Unique Colours %](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.html) vs [Plotly Colours](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_False.html)
