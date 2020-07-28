@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """display guilty gear characters play stats by day in graph"""
-import csv, colour
+import csv, colour, data_preparation
 import plotly.graph_objects as go
 import pandas as pd
 from os.path import sep as sep
@@ -137,6 +137,9 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
     save_graph(fig, filename, 'docs')
 
 if __name__ == "__main__":
+
+    #data_preparation.get_web_csv()
+
     d, c = get_plotly_data()
 
     #percentage graphs
