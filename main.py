@@ -86,7 +86,7 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
                       xaxis_title="Sample Size", yaxis_title="Sample Dates", legend_title="Characters",
                       )
 
-    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
+    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %', xaxis_title="Percentage of Sample Size")
 
     filename = "generate_h_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
@@ -136,7 +136,7 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
                       yaxis_title="Sample Size", xaxis_title="Sample Dates", legend_title="Characters",
                       )
 
-    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
+    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %', yaxis_title="Percentage of Sample Size")
 
     filename = "generate_v_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
