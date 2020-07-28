@@ -7,26 +7,25 @@ I have choosen different displays either with absolut value, as percentage and i
 ## Horizontal Display
 
 ### Percentage Display
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_True.html)
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_True.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_unique_colour_True.html)
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_unique_colour_True.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_True.html)
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_True.png)
 
 ### Value Display
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.html)
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_False.html)
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_False.png)
 
 
 ## Vertical Display
 
-###Percentage Display
+### Percentage Display
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_True.html)
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_True.png)
 
-###Value Display
+### Value Display
 
-![Display](None.html)
-
+![Display](None.png)
