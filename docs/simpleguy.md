@@ -8,10 +8,10 @@ As you can see here: [click me](https://papstjl4u.github.io/BaikenMains/generate
 
 
 ### Pictures
-####Percentage of players:
+#### Percentage of players:
 ![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.png)
 
-####Number of Players
+#### Number of Players
 ![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.png)
 
 
