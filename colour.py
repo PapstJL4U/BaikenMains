@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-_c = 25
+import  plotly.express.colors as pltclr
 
+_c = 25
 def red_on_gray():
     colours = ['lightslategray', ] * _c
     for i in range(24):
@@ -47,21 +48,11 @@ def character_colours():
     bedman = 0xEF377B
     jacko = 0xED9A00
     jam = 0xFF614C
-"""
-def mathplotlib_colour():
-    import matplotlib, random
 
-    hex_colors_dic = {}
-    rgb_colors_dic = {}
-    hex_colors_only = []
-    for name, hex in matplotlib.colors.cnames.items():
-        hex_colors_only.append(hex)
-        hex_colors_dic[name] = hex
-        rgb_colors_dic[name] = matplotlib.colors.to_rgb(hex)
+def plt_colour():
+    size = _c
+    colours = ["#000000"] * size
+    for i in range(size):
+        colours[i] = pltclr.qualitative.Plotly[i % len(pltclr.qualitative.Plotly)]
 
-    print(hex_colors_only)
-
-    # getting random color from list of hex colors
-
-    print(random.choice(hex_colors_only))
-"""
+    return colours

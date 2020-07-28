@@ -39,9 +39,28 @@ def save_graph(ply_figure, filename, subfolder):
     with open(subfolder + sep + filename + ".png", "wb") as f:
         f.write(ply_figure.to_image(format="png", engine="kaleido", width=1920, height=1080))
 
-def generate_h_graph_red_on_gray(data_format, characters, percentage=True):
-    """generate a character usage graph, where Baikens data is salmon colour and everything else gray"""
-    colours = colour.red_on_gray()
+
+def generate_h_graph(data_format, characters, percentage=True, colour_coding='dft'):
+    """generate horizontal graph with different colours
+
+        data_format = a prepared array return by get_plotly_data() as the first return value
+        characters =  a perpared list of characters returned by get_plotly_data() as the second return value
+        percentage = a boolean, that tells plotly to display characters appearance as percentage of all, i.e. 13% Baiken
+        instead of 6 Baiken
+        color_coding = dlt: plotly autocolors, css1 = my choice of css colors, rog = red on gray -> Baiken is colored salmon
+        and all other characters are gray.
+        """
+
+    if colour_coding == "css1":
+        colours = colour.css1()
+        colour_coding_str = 'unique_colours'
+    elif colour_coding == "rog":
+        colours = colour.red_on_gray()
+        colour_coding_str = 'red_on_gray'
+    else:
+        colours = colour.plt_colour()
+        colour_coding_str = 'plt_colours'
+
     fig = go.Figure()
     for i, charsi in enumerate(characters):
         fig.add_trace(go.Bar(
@@ -54,57 +73,22 @@ def generate_h_graph_red_on_gray(data_format, characters, percentage=True):
             marker_color=colours[i],
             hoverinfo="name+x",
         ))
-    fig.update_layout(barmode='stack', title_text='Character Usage', yaxis_type='category')
-    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
-    filename =  "generate_h_graph_red_on_gray_" + str(percentage)
-    save_graph(fig, filename, 'docs')
 
-def generate_h_graph_unique_colour(data_format, characters, percentage=True):
-    """generate horizontal graph with plotly default colours"""
-    fig = go.Figure()
-    colours = colour.css1()
-    for i, charsi in enumerate(characters):
-        fig.add_trace(go.Bar(
-            y=data_format['date'],
-            x=data_format[charsi],
-            orientation='h',
-            name=charsi,
-            text=charsi,
-            textposition='auto',
-            marker_color=colours[i],
-            hoverinfo="name+x",
-        ))
     fig.update_layout(barmode='stack', title_text='Character Usage in %',yaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent")
-    filename = "generate_h_graph_unique_colour_" + str(percentage)
+
+    filename = "generate_h_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
 
-def generate_h_graph(data_format, characters, percentage=True):
-    """generate horizontal graph with plotly default colours"""
-    fig = go.Figure()
-    for i, charsi in enumerate(characters):
-        fig.add_trace(go.Bar(
-            y=data_format['date'],
-            x=data_format[charsi],
-            orientation='h',
-            name=charsi,
-            text=charsi,
-            textposition='auto',
-            hoverinfo="name+x",
-        ))
-    fig.update_layout(barmode='stack', title_text='Character Usage in %',yaxis_type='category')
-    if percentage: fig.update_layout(barnorm="percent")
-    filename = "generate_h_graph_plt_colours_" + str(percentage)
-    save_graph(fig, filename, 'docs')
 
 def generate_v_graph(data_format, characters, percentage=True, colour_coding='dft'):
-    """generate horizontal graph with different colours
+    """generate vertical graph with different colours
 
     data_format = a prepared array return by get_plotly_data() as the first return value
     characters =  a perpared list of characters returned by get_plotly_data() as the second return value
     percentage = a boolean, that tells plotly to display characters appearance as percentage of all, i.e. 13% Baiken
     instead of 6 Baiken
-    color_coding = dlt: plotly autocolors, css1 = my choice of css colors, rog = red on gray -> Baiken is colored salmon
+    color_coding = dft: plotly autocolors, css1 = my choice of css colors, rog = red on gray -> Baiken is colored salmon
     and all other characters are gray.
     """
     fig = go.Figure()
@@ -115,9 +99,11 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
         colours = colour.red_on_gray()
         colour_coding_str = 'red_on_gray'
     else:
-        colours = []
+        colours = colour.plt_colour()
         colour_coding_str = 'plt_colours'
-    print(colours)
+
+    print(len(colours), colours)
+
     for i, charsi in enumerate(characters):
         fig.add_trace(go.Bar(
             y=data_format[charsi],
@@ -129,20 +115,32 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
             marker_color=colours[i],
             hoverinfo="name+x",
         ))
+
     fig.update_layout(barmode='stack', title_text='Character Usage', xaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
+
     filename = "generate_v_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
 
 if __name__ == "__main__":
     d, c = get_plotly_data()
-    #generate_h_graph(d,c)
-    #generate_h_graph(d,c,False)
-    #generate_h_graph_red_on_gray(d,c)
-    #generate_h_graph_red_on_gray(d,c, False)
-    #generate_h_graph_unique_colour(d,c)
-    generate_v_graph(d,c, True, 'rog')
-    generate_v_graph(d, c, True, 'css1')
-    #generate_v_graph(d, c, True, 'dft')
 
+    #percentage graphs
+    generate_h_graph(d, c, True, 'rog')
+    generate_h_graph(d, c, True, 'css1')
+    generate_h_graph(d, c, True, 'dft')
+
+    generate_v_graph(d, c, True, 'rog')
+    generate_v_graph(d, c, True, 'css1')
+    generate_v_graph(d, c, True, 'dft')
+
+    #integer graphs
+
+    generate_h_graph(d, c, False, 'rog')
+    generate_h_graph(d, c, False, 'css1')
+    generate_h_graph(d, c, False, 'dft')
+
+    generate_v_graph(d, c, False, 'rog')
+    generate_v_graph(d, c, False, 'css1')
+    generate_v_graph(d, c, False, 'dft')
 
