@@ -4,6 +4,7 @@
 import csv, colour, datetime
 import plotly.graph_objects as go
 import pandas as pd
+from os.path import sep as sep
 published_csv = r'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7VtGA2e06j226OnbwcMXzk2z1KyUqfarZLpHaSLJVUCwplbaVrQvKxbrEEEYnJWKeHcAGyoAVqKgW/pub?gid=1914483541&single=true&output=csv'
 
 def get_csv():
@@ -32,6 +33,12 @@ def get_plotly_data():
     except:
         raise
 
+def save_graph(ply_figure, filename, subfolder):
+    """Saves a plotly graphic object as filename in subfolder as an html and png"""
+    ply_figure.write_html(subfolder+ sep + filename + ".html")
+    with open(subfolder + sep + filename + ".png", "wb") as f:
+        f.write(ply_figure.to_image(format="png", engine="kaleido", width=1920, height=1080))
+
 def generate_h_graph_red_on_gray(data_format, characters, percentage=True):
     """generate a character usage graph, where Baikens data is salmon colour and everything else gray"""
     colours = colour.red_on_gray()
@@ -42,12 +49,15 @@ def generate_h_graph_red_on_gray(data_format, characters, percentage=True):
             x=data_format[charsi],
             orientation='h',
             name=charsi,
+            text=charsi,
+            textposition='auto',
             marker_color=colours[i],
             hoverinfo="name+x",
         ))
     fig.update_layout(barmode='stack', title_text='Character Usage', yaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
-    fig.show()
+    filename =  "generate_h_graph_red_on_gray_" + str(percentage)
+    save_graph(fig, filename, 'docs')
 
 def generate_h_graph_unique_colour(data_format, characters, percentage=True):
     "generate horizontal graph with plotly default colours"
@@ -66,10 +76,8 @@ def generate_h_graph_unique_colour(data_format, characters, percentage=True):
         ))
     fig.update_layout(barmode='stack', title_text='Character Usage in %',yaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent")
-    fig.show()
-    fig.write_html("exports/generate_h_graph_unique_colour_"+str(percentage)+".html")
-    with open("exports/generate_h_graph_unique_colour_"+str(percentage)+".png", "wb") as f:
-        f.write(fig.to_image(format="png", engine="kaleido", width=1920, height=1080))
+    filename = "generate_h_graph_unique_colour_" + str(percentage)
+    save_graph(fig, filename, 'docs')
 
 def generate_h_graph(data_format, characters, percentage=True):
     "generate horizontal graph with plotly default colours"
@@ -80,11 +88,14 @@ def generate_h_graph(data_format, characters, percentage=True):
             x=data_format[charsi],
             orientation='h',
             name=charsi,
+            text=charsi,
+            textposition='auto',
             hoverinfo="name+x",
         ))
     fig.update_layout(barmode='stack', title_text='Character Usage in %',yaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent")
-    fig.show()
+    filename = "generate_h_graph_plt_colours_" + str(percentage)
+    save_graph(fig, filename, 'docs')
 
 def generate_v_graph(data_format, characters, percentage=True):
     "generate horizontal graph with plotly default colours"
@@ -97,18 +108,21 @@ def generate_v_graph(data_format, characters, percentage=True):
             x=data_format['date'],
             orientation='v',
             name=charsi,
+            text=charsi,
+            textposition='auto',
             marker_color=colours[i],
             hoverinfo="name+x",
         ))
     fig.update_layout(barmode='stack', title_text='Character Usage', xaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
-    fig.show()
+    filename = "generate_v_graph_" + str(percentage)
+    save_graph(fig, filename, 'docs')
 
 if __name__ == "__main__":
     d, c = get_plotly_data()
-    #generate_h_graph(d,c)
-    #generate_h_graph(d,c,False)
-    #generate_h_graph_red_on_gray(d,c)
-    #generate_h_graph_red_on_gray(d,c, False)
-    #generate_v_graph(d,c)
+    generate_h_graph(d,c)
+    generate_h_graph(d,c,False)
+    generate_h_graph_red_on_gray(d,c)
+    generate_h_graph_red_on_gray(d,c, False)
+    generate_v_graph(d,c)
     generate_h_graph_unique_colour(d,c)
