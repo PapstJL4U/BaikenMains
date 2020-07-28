@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """display guilty gear characters play stats by day in graph"""
-import csv, colour, datetime
+import csv, colour
 import plotly.graph_objects as go
 import pandas as pd
 from os.path import sep as sep
-published_csv = r'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7VtGA2e06j226OnbwcMXzk2z1KyUqfarZLpHaSLJVUCwplbaVrQvKxbrEEEYnJWKeHcAGyoAVqKgW/pub?gid=1914483541&single=true&output=csv'
-
+from itertools import cycle
 def get_csv():
     """depreciated"""
     with open("local_data.csv",newline='',) as csvfile:
@@ -63,19 +62,27 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
 
     fig = go.Figure()
     for i, charsi in enumerate(characters):
+
+        ziplist = []
+        for z in list(zip(cycle([charsi]), data_format[charsi])):
+            f = "{:.0f}".format(z[1])
+            ziplist.append(f + " " + z[0])
+
         fig.add_trace(go.Bar(
             y=data_format['date'],
             x=data_format[charsi],
             orientation='h',
             name=charsi,
-            text=charsi,
+            text=ziplist,
             textposition='auto',
             marker_color=colours[i],
             hoverinfo="name+x",
         ))
 
-    fig.update_layout(barmode='stack', title_text='Character Usage in %',yaxis_type='category')
-    if percentage: fig.update_layout(barnorm="percent")
+    fig.update_layout(barmode='stack', title_text='Character Usage', yaxis_type='category',
+    xaxis_title="Sample Size", yaxis_title="Sample Dates", legend_title="Characters")
+
+    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
 
     filename = "generate_h_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
@@ -103,18 +110,27 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
         colour_coding_str = 'plt_colours'
 
     for i, charsi in enumerate(characters):
+
+        ziplist = []
+        #ziplist = list(zip(cycle([charsi]), data_format[charsi]))
+        for z in list(zip(cycle([charsi]), data_format[charsi])):
+            f = "{:.0f}".format(z[1])
+            ziplist.append(f +" " + z[0])
+
         fig.add_trace(go.Bar(
             y=data_format[charsi],
             x=data_format['date'],
             orientation='v',
             name=charsi,
-            text=charsi,
-            textposition='auto',
+            text= ziplist,
+            textposition='inside',
             marker_color=colours[i],
-            hoverinfo="name+x",
+            hoverinfo="name+y",
         ))
 
-    fig.update_layout(barmode='stack', title_text='Character Usage', xaxis_type='category')
+    fig.update_layout(barmode='stack', title_text='Character Usage', xaxis_type='category',
+                      yaxis_title="Sample Size", xaxis_title="Sample Dates", legend_title="Characters")
+
     if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
 
     filename = "generate_v_graph_" + colour_coding_str + "_"+ str(percentage)
@@ -133,12 +149,10 @@ if __name__ == "__main__":
     generate_v_graph(d, c, True, 'dft')
 
     #integer graphs
-
     generate_h_graph(d, c, False, 'rog')
     generate_h_graph(d, c, False, 'css1')
     generate_h_graph(d, c, False, 'dft')
 
     generate_v_graph(d, c, False, 'rog')
     generate_v_graph(d, c, False, 'css1')
-    generate_v_graph(d, c, False, 'dft')
-
+    generate_v_graph(d, c, True, 'dft')

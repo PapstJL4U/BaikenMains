@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 import  plotly.express.colors as pltclr
 
-_c = 25
+_c = 25 # equal to the number of guilty gear characters
+
 def red_on_gray():
     colours = ['lightslategray', ] * _c
     for i in range(24):
@@ -50,9 +51,9 @@ def character_colours():
     jam = 0xFF614C
 
 def plt_colour():
-    size = _c
-    colours = ["#000000"] * size
-    for i in range(size):
-        colours[i] = pltclr.qualitative.Plotly[i % len(pltclr.qualitative.Plotly)]
+    colours = ["#000000"] * _c
+    length = len(pltclr.qualitative.Plotly)
+    for i in range(_c):
+        colours[i] = pltclr.qualitative.Plotly[i % length]
 
     return colours
