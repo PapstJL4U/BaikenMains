@@ -1,13 +1,8 @@
-# **Yosanzen**
+**Yosanzen!** - Baikenmains play this game :)
 
-Baikenmains play this game :)
+You can see it here in this [interactive chart](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.html)
+or you can look at the pictures below.
 
-### Interactive
-
-As you can see here: [click me](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.html).
-
-
-### Pictures
 #### Percentage of players:
 ![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.png)
 

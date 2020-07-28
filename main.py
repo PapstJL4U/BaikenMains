@@ -146,7 +146,14 @@ if __name__ == "__main__":
     #data_preparation.get_web_csv()
 
     d, c = get_plotly_data()
+    col_coding = ["rng", "css1", "dft"]
+    display_in_percentage = ["True", "False"]
 
+    for mode in [display_in_percentage]:
+        for percentage, col in zip(cycle([mode]), col_coding):
+            generate_h_graph(d,c, percentage, col)
+            generate_v_graph(d,c, percentage, col)
+    """
     #percentage graphs
     generate_h_graph(d, c, True, 'rog')
     generate_h_graph(d, c, True, 'css1')
@@ -164,3 +171,4 @@ if __name__ == "__main__":
     generate_v_graph(d, c, False, 'rog')
     generate_v_graph(d, c, False, 'css1')
     generate_v_graph(d, c, False, 'dft')
+    """
