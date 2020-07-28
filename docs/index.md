@@ -23,11 +23,11 @@ https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html v
 
 ### Percentage Display
 
-![Display](papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.png)
 
-![Display](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.png)
 
-![Display](papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.png)
 
 ### Value Display
 
