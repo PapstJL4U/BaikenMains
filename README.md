@@ -1,2 +1,3 @@
 # BaikenMains
-number of Baikens and other characters
+
+You can view the Guilty Gear Xrd Rev 2character representation of player matches (lobbies) visible to me. Baiken players exist.
