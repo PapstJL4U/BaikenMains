@@ -60,7 +60,7 @@ def generate_h_graph_red_on_gray(data_format, characters, percentage=True):
     save_graph(fig, filename, 'docs')
 
 def generate_h_graph_unique_colour(data_format, characters, percentage=True):
-    "generate horizontal graph with plotly default colours"
+    """generate horizontal graph with plotly default colours"""
     fig = go.Figure()
     colours = colour.css1()
     for i, charsi in enumerate(characters):
@@ -80,7 +80,7 @@ def generate_h_graph_unique_colour(data_format, characters, percentage=True):
     save_graph(fig, filename, 'docs')
 
 def generate_h_graph(data_format, characters, percentage=True):
-    "generate horizontal graph with plotly default colours"
+    """generate horizontal graph with plotly default colours"""
     fig = go.Figure()
     for i, charsi in enumerate(characters):
         fig.add_trace(go.Bar(
@@ -97,10 +97,26 @@ def generate_h_graph(data_format, characters, percentage=True):
     filename = "generate_h_graph_plt_colours_" + str(percentage)
     save_graph(fig, filename, 'docs')
 
-def generate_v_graph(data_format, characters, percentage=True):
-    "generate horizontal graph with plotly default colours"
+def generate_v_graph(data_format, characters, percentage=True, colour_coding='dft'):
+    """generate horizontal graph with different colours
+
+    data_format = a prepared array return by get_plotly_data() as the first return value
+    characters =  a perpared list of characters returned by get_plotly_data() as the second return value
+    percentage = a boolean, that tells plotly to display characters appearance as percentage of all, i.e. 13% Baiken
+    instead of 6 Baiken
+    color_coding = dlt: plotly autocolors, css1 = my choice of css colors, rog = red on gray -> Baiken is colored salmon
+    and all other characters are gray.
+    """
     fig = go.Figure()
-    colours = colour.red_on_gray()
+    if colour_coding == "css1":
+        colours = colour.css1()
+        colour_coding_str = 'unique_colours'
+    elif colour_coding == "rog":
+        colours = colour.red_on_gray()
+        colour_coding_str = 'red_on_gray'
+    else:
+        colours = []
+        colour_coding_str = 'plt_colours'
     print(colours)
     for i, charsi in enumerate(characters):
         fig.add_trace(go.Bar(
@@ -115,14 +131,18 @@ def generate_v_graph(data_format, characters, percentage=True):
         ))
     fig.update_layout(barmode='stack', title_text='Character Usage', xaxis_type='category')
     if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %')
-    filename = "generate_v_graph_" + str(percentage)
+    filename = "generate_v_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
 
 if __name__ == "__main__":
     d, c = get_plotly_data()
-    generate_h_graph(d,c)
-    generate_h_graph(d,c,False)
-    generate_h_graph_red_on_gray(d,c)
-    generate_h_graph_red_on_gray(d,c, False)
-    generate_v_graph(d,c)
-    generate_h_graph_unique_colour(d,c)
+    #generate_h_graph(d,c)
+    #generate_h_graph(d,c,False)
+    #generate_h_graph_red_on_gray(d,c)
+    #generate_h_graph_red_on_gray(d,c, False)
+    #generate_h_graph_unique_colour(d,c)
+    generate_v_graph(d,c, True, 'rog')
+    generate_v_graph(d, c, True, 'css1')
+    #generate_v_graph(d, c, True, 'dft')
+
+
