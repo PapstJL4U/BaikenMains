@@ -10,13 +10,23 @@ Data node: I tallied the characters, when looking for Player matches (lobbies). 
 
 ### Horizontal
 
-https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html vs https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_False.html
+[standard Plotly Colours in %](https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_False.html)
 
 
-[Unique Colours %](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.html) vs [Plotly Colours](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_False.html)
+[Unique Colours in %](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_False.html)
 
 
-[Red on Gray Colours %](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.html) vs [Plotly Colours](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_colours_False.html)
+[as % in Red on Gray](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_colours_False.html)
+
+### Vertical
+
+[standard Plotly Colours in %](https://papstjl4u.github.io/BaikenMains/generate_v_graph_plt_colours_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_v_graph_plt_colours_False.html)
+
+
+[Unique Colours in %](https://papstjl4u.github.io/BaikenMains/generate_v_graph_unique_colours_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_v_graph_unique_colours_False.html)
+
+
+[as % in Red on Gray](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_colours_False.html)
 
 ## Horizontal Display
 
@@ -31,27 +41,27 @@ https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html v
 
 ### Value Display
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_False.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_unique_colours_False.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_False.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_False.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_False.png)
 
 
 ## Vertical Display
 
 ### Percentage Display
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_plt_colours_True.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_plt_colours_True.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_unique_colours_True.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_unique_colours_True.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_red_on_gray_True.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_True.png)
 
 ### Value Display
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_plt_colours_False.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_plt_colours_False.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_unique_colours_False.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_unique_colours_False.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_v_graph_red_on_gray_False.png)
+![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_False.png)
