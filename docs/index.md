@@ -10,24 +10,24 @@ Data node: I tallied the characters, when looking for Player matches (lobbies). 
 
 ### Horizontal
 
-[Plotly Colours %](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_True.html) [Plotly Colours](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.html)
+[Plotly Colours in %](papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.html) vs [Plotly Colours](papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_False.html)
 
 
-[Unique Colours %](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_unique_colours_True.html) [Plotly Colours](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/ggenerate_h_graph_unique_colours_False.html)
+[Unique Colours %](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.html) vs [Plotly Colours](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_False.html)
 
 
-[Red on Gray Colours %](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_True.html) [Plotly Colours](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_colours_False.html)
+[Red on Gray Colours %](papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.html) vs [Plotly Colours](papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_colours_False.html)
 
 ## Horizontal Display
 
 
 ### Percentage Display
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_True.png)
+![Display](papstjl4u.github.io/BaikenMains/generate_h_graph_plt_colours_True.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_unique_colours_True.png)
+![Display](papstjl4u.github.io/BaikenMains/generate_h_graph_unique_colours_True.png)
 
-![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_True.png)
+![Display](papstjl4u.github.io/BaikenMains/generate_h_graph_red_on_gray_True.png)
 
 ### Value Display
 
