@@ -6,6 +6,18 @@ The first graphs show the amount a character is played during a a data node. The
 
 Data node: I tallied the characters, when looking for Player matches (lobbies). Limits: full lobbies are not shown, private lobbies are not show and my data collections is sporadic and EU-centered.
 
+1080p pictures are below, but interactive graphs are here:
+
+### Horizontal
+
+[Plotly Colours %](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_True.html) [Plotly Colours](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.html)
+
+
+[Unique Colours %](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_unique_colours_True.html) [Plotly Colours](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/ggenerate_h_graph_unique_colours_False.html)
+
+
+[Red on Gray Colours %](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_True.html) [Plotly Colours](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_red_on_gray_colours_False.html)
+
 ## Horizontal Display
 
 
