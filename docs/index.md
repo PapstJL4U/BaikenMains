@@ -2,7 +2,9 @@
 
 Let's take a look at the characters:
 
-I have choosen different displays either with absolut value, as percentage and in different colours.
+The first graphs show the amount a character is played during a a data node. The second set of graphs shows the absolut quantity a character is played, e.x. 13% Baiken and 5 Baikens.
+
+Data node: I tallied the characters, when looking for Player matches (lobbies). Limits: full lobbies are not shown, private lobbies are not show and my data collections is sporadic and EU-centered.
 
 ## Horizontal Display
 
