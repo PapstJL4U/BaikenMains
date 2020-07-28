@@ -8,6 +8,15 @@ Data node: I tallied the characters, when looking for Player matches (lobbies). 
 
 ## Horizontal Display
 
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.png)
+
+[Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.png)
+
+![Display](https://github.com/PapstJL4U/BaikenMains/blob/master/docs/generate_h_graph_plt_colours_False.png)
+
+[Display](https://github.com/PapstJL4U/BaikenMains/docs/generate_h_graph_plt_colours_False.png)
+
+
 ### Percentage Display
 
 ![Display](https://github.com/PapstJL4U/BaikenMains/docs/generate_h_graph_plt_colours_True.png)
