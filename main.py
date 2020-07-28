@@ -102,8 +102,6 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
         colours = colour.plt_colour()
         colour_coding_str = 'plt_colours'
 
-    print(len(colours), colours)
-
     for i, charsi in enumerate(characters):
         fig.add_trace(go.Bar(
             y=data_format[charsi],
