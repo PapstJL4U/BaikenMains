@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """display guilty gear characters play stats by day in graph"""
-import csv, colour, data_preparation
+import colour, data_preparation
 import plotly.graph_objects as go
 import pandas as pd
 from os.path import sep as sep
@@ -30,12 +30,11 @@ def save_graph(ply_figure, filename, subfolder):
     with open(subfolder + sep + filename + ".png", "wb") as f:
         f.write(ply_figure.to_image(format="png", engine="kaleido", width=1920, height=1080))
 
-def graph_bar_text(charsi, data_format):
+def graph_bar_text(charsi, data_format, percentage):
     """the text field of a trace has to be a string or string list, therefore "dynamic information has to be
     precompiled. We create a list, that is the string representation of Value - Character
     example:  ['2.4% Anwser', '0.0% Anwser', '2.8% Anwser', '0.0% Anwser', '0.0% Anwser'].
     This is implicit sorted by day from earliest to latest.
-
     """
     ziplist = []
     for j, z in enumerate(list(zip(cycle([charsi]), data_format[charsi]))):
@@ -71,7 +70,7 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
     fig = go.Figure()
     for i, charsi in enumerate(characters):
 
-        ziplist = graph_bar_text(charsi, data_format)
+        ziplist = graph_bar_text(charsi, data_format, percentage)
 
         fig.add_trace(go.Bar(
             y=data_format['date'],
@@ -119,7 +118,7 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
 
     for i, charsi in enumerate(characters):
 
-        ziplist = graph_bar_text(charsi, data_format)
+        ziplist = graph_bar_text(charsi, data_format, percentage)
 
         fig.add_trace(go.Bar(
             y=data_format[charsi],
