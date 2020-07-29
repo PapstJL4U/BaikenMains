@@ -6,16 +6,6 @@ import plotly.graph_objects as go
 import pandas as pd
 from os.path import sep as sep
 from itertools import cycle
-def get_csv():
-    """depreciated"""
-    with open("local_data.csv",newline='',) as csvfile:
-        reader = csv.DictReader(csvfile, dialect='excel')
-        for dic in reader:
-            dic.pop('daily sum')
-            if "character sum" == dic.get("time"):
-                print("skip")
-                break
-            print(dic)
 
 def get_plotly_data():
     """reads csv from a the local file local_data.csv into a data_format and characters."""
@@ -40,6 +30,23 @@ def save_graph(ply_figure, filename, subfolder):
     with open(subfolder + sep + filename + ".png", "wb") as f:
         f.write(ply_figure.to_image(format="png", engine="kaleido", width=1920, height=1080))
 
+def graph_bar_text(charsi, data_format):
+    """the text field of a trace has to be a string or string list, therefore "dynamic information has to be
+    precompiled. We create a list, that is the string representation of Value - Character
+    example:  ['2.4% Anwser', '0.0% Anwser', '2.8% Anwser', '0.0% Anwser', '0.0% Anwser'].
+    This is implicit sorted by day from earliest to latest.
+
+    """
+    ziplist = []
+    for j, z in enumerate(list(zip(cycle([charsi]), data_format[charsi]))):
+        daily_sum = data_format.sum(axis=1)
+        if percentage:
+            f = "{:.1f}".format(z[1] / daily_sum[j] * 100) + r'%'
+        else:
+            f = "{:.0f}".format(z[1])
+        ziplist.append(f + " " + z[0])
+
+    return ziplist
 
 def generate_h_graph(data_format, characters, percentage=True, colour_coding='dft'):
     """generate horizontal graph with different colours
@@ -51,7 +58,6 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
         color_coding = dlt: plotly autocolors, css1 = my choice of css colors, rog = red on gray -> Baiken is colored salmon
         and all other characters are gray.
         """
-
     if colour_coding == "css1":
         colours = colour.css1()
         colour_coding_str = 'unique_colours'
@@ -65,10 +71,7 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
     fig = go.Figure()
     for i, charsi in enumerate(characters):
 
-        ziplist = []
-        for z in list(zip(cycle([charsi]), data_format[charsi])):
-            f = "{:.0f}".format(z[1])
-            ziplist.append(f + " " + z[0])
+        ziplist = graph_bar_text(charsi, data_format)
 
         fig.add_trace(go.Bar(
             y=data_format['date'],
@@ -76,7 +79,7 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
             orientation='h',
             name=charsi,
             text=ziplist,
-            textposition='auto',
+            textposition='inside',
             marker_color=colours[i],
             hoverinfo="name+x",
         ))
@@ -86,7 +89,8 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
                       xaxis_title="Sample Size", yaxis_title="Sample Dates", legend_title="Characters",
                       )
 
-    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %', xaxis_title="Percentage of Sample Size")
+    if percentage:
+        fig.update_layout(barnorm="percent", title_text='Character Usage in %', xaxis_title="Percentage of Sample Size")
 
     filename = "generate_h_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
@@ -115,10 +119,7 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
 
     for i, charsi in enumerate(characters):
 
-        ziplist = []
-        for z in list(zip(cycle([charsi]), data_format[charsi])):
-            f = "{:.0f}".format(z[1])
-            ziplist.append(f +" " + z[0])
+        ziplist = graph_bar_text(charsi, data_format)
 
         fig.add_trace(go.Bar(
             y=data_format[charsi],
@@ -136,7 +137,8 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
                       yaxis_title="Sample Size", xaxis_title="Sample Dates", legend_title="Characters",
                       )
 
-    if percentage: fig.update_layout(barnorm="percent", title_text='Character Usage in %', yaxis_title="Percentage of Sample Size")
+    if percentage:
+        fig.update_layout(barnorm="percent", title_text='Character Usage in %', yaxis_title="Percentage of Sample Size")
 
     filename = "generate_v_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
@@ -146,29 +148,13 @@ if __name__ == "__main__":
     #data_preparation.get_web_csv()
 
     d, c = get_plotly_data()
-    col_coding = ["rng", "css1", "dft"]
+    col_coding = ["rog", "css1", "dft"]
     display_in_percentage = ["True", "False"]
 
-    for mode in [display_in_percentage]:
+    for mode in display_in_percentage:
         for percentage, col in zip(cycle([mode]), col_coding):
-            generate_h_graph(d,c, percentage, col)
-            generate_v_graph(d,c, percentage, col)
-    """
-    #percentage graphs
-    generate_h_graph(d, c, True, 'rog')
-    generate_h_graph(d, c, True, 'css1')
-    generate_h_graph(d, c, True, 'dft')
-
-    generate_v_graph(d, c, True, 'rog')
-    generate_v_graph(d, c, True, 'css1')
-    generate_v_graph(d, c, True, 'dft')
-
-    #integer graphs
-    generate_h_graph(d, c, False, 'rog')
-    generate_h_graph(d, c, False, 'css1')
-    generate_h_graph(d, c, False, 'dft')
-
-    generate_v_graph(d, c, False, 'rog')
-    generate_v_graph(d, c, False, 'css1')
-    generate_v_graph(d, c, False, 'dft')
-    """
+            print("Rendering: " + percentage, col)
+            generate_h_graph(d,c, eval(percentage), col)
+            print("horizontal - done")
+            generate_v_graph(d,c, eval(percentage), col)
+            print("vertical - done")
