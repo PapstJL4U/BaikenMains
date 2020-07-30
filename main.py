@@ -24,12 +24,12 @@ def get_plotly_data():
     except:
         raise
 
-def save_graph(ply_figure, filename, subfolder):
+def save_graph(ply_figure, filename, subfolder, width=1920, height=1080):
     """Saves a plotly graphic object as filename in subfolder as an html and png"""
-    print(ply_figure.data)
+
     ply_figure.write_html(subfolder+ sep + filename + ".html")
     with open(subfolder + sep + filename + ".png", "wb") as f:
-        f.write(ply_figure.to_image(format="png", engine="kaleido", width=1920, height=1080))
+        f.write(ply_figure.to_image(format="png", engine="kaleido", width=width, height=height))
 
 def graph_bar_text(charsi, data_format, percentage):
     """the text field of a trace has to be a string or string list, therefore "dynamic information has to be
@@ -93,7 +93,9 @@ def generate_h_graph(data_format, characters, percentage=True, colour_coding='df
         fig.update_layout(barnorm="percent", title_text='Character Usage in %', xaxis_title="Percentage of Sample Size")
 
     filename = "generate_h_graph_" + colour_coding_str + "_"+ str(percentage)
-    save_graph(fig, filename, 'docs')
+
+    height = len(data_format['date'])*220
+    save_graph(fig, filename, 'docs', height=height)
 
 
 def generate_v_graph(data_format, characters, percentage=True, colour_coding='dft'):
@@ -141,10 +143,12 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
         fig.update_layout(barnorm="percent", title_text='Character Usage in %', yaxis_title="Percentage of Sample Size")
 
     filename = "generate_v_graph_" + colour_coding_str + "_"+ str(percentage)
-    save_graph(fig, filename, 'docs')
+    width = len(data_format['date']) * 300
+    save_graph(fig, filename, 'docs', width)
 
 def test_stub(d, c):
     generate_h_graph(d,c,eval("True"), "rog")
+    generate_v_graph(d, c, eval("True"), "rog")
 
 if __name__ == "__main__":
 
@@ -153,7 +157,7 @@ if __name__ == "__main__":
     d, c = get_plotly_data()
     col_coding = ["rog", "css1", "dft"]
     display_in_percentage = ["True", "False"]
-    """
+
     for mode in display_in_percentage:
         for percentage, col in zip(cycle([mode]), col_coding):
             print("Rendering: " + percentage, col)
@@ -161,5 +165,5 @@ if __name__ == "__main__":
             print("horizontal - done")
             generate_v_graph(d,c, eval(percentage), col)
             print("vertical - done")
-    """
-    test_stub(d,c)
+
+    #test_stub(d,c)
