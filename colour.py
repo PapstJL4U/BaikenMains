@@ -9,6 +9,8 @@ def red_on_gray():
     for i in range(24):
         if (i % 2) == 0:
             colours[i] = 'slategray'
+        if (i % 3) == 0:
+            pass
     colours[2] = 'darksalmon'
 
     return colours
