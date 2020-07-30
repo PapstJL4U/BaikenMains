@@ -26,7 +26,7 @@ Data node: I counted the characters, when looking for Player matches (lobbies). 
 [Unique Colours in %](https://papstjl4u.github.io/BaikenMains/generate_v_graph_unique_colours_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_v_graph_unique_colours_False.html)
 
 
-[as % in Red on Gray](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_colours_False.html)
+[as % in Red on Gray](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_True.html) vs [Quantity](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_False.html)
 
 ## Horizontal Display
 
