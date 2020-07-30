@@ -128,5 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#secret
+#secret I know this is not safe....
 client_secret.json
