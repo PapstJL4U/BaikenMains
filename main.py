@@ -11,7 +11,6 @@ def get_plotly_data():
     """reads csv from a the local file local_data.csv into a data_format and characters."""
     try:
         data_format = pd.read_csv("local_data.csv")
-
         """ # plotly can not skip empty dates and cant format category for fuck all reason... we work with string dates....
         data_format['date'] = data_format['date'] + " " + data_format['time']
         #data_format['date'] = pd.to_datetime(data_format['date'].astype('datetime64[ns]'))
