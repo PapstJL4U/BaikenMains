@@ -26,6 +26,7 @@ def get_plotly_data():
 
 def save_graph(ply_figure, filename, subfolder):
     """Saves a plotly graphic object as filename in subfolder as an html and png"""
+    print(ply_figure.data)
     ply_figure.write_html(subfolder+ sep + filename + ".html")
     with open(subfolder + sep + filename + ".png", "wb") as f:
         f.write(ply_figure.to_image(format="png", engine="kaleido", width=1920, height=1080))
@@ -142,6 +143,9 @@ def generate_v_graph(data_format, characters, percentage=True, colour_coding='df
     filename = "generate_v_graph_" + colour_coding_str + "_"+ str(percentage)
     save_graph(fig, filename, 'docs')
 
+def test_stub(d, c):
+    generate_h_graph(d,c,eval("True"), "rog")
+
 if __name__ == "__main__":
 
     #data_preparation.get_web_csv()
@@ -149,7 +153,7 @@ if __name__ == "__main__":
     d, c = get_plotly_data()
     col_coding = ["rog", "css1", "dft"]
     display_in_percentage = ["True", "False"]
-
+    """
     for mode in display_in_percentage:
         for percentage, col in zip(cycle([mode]), col_coding):
             print("Rendering: " + percentage, col)
@@ -157,3 +161,5 @@ if __name__ == "__main__":
             print("horizontal - done")
             generate_v_graph(d,c, eval(percentage), col)
             print("vertical - done")
+    """
+    test_stub(d,c)

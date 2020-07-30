@@ -21,7 +21,7 @@ def css1():
                 'Gold', 'DeepPink', 'Green', 'Cyan', 'Orchid',
                 'Tomato', 'NavajoWhite', 'CadetBlue', 'DarkOliveGreen','PaleVioletRed',
                 'YellowGreen','DarkTurquoise','GoldenRod', 'LightSeaGreen','Coral']
-    if len(css1) != _c:
+    if len(css1) < _c:
         raise("not enough colours for every character!")
     return css1
 
