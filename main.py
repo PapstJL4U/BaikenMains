@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """display guilty gear characters play stats by day in graph"""
-import colour, data_preparation
-import plotly.graph_objects as go
-import pandas as pd
-from os.path import sep as sep
 from itertools import cycle
+from os.path import sep as sep
+
+import pandas as pd
+import plotly.graph_objects as go
+
+import colour
+
 
 def get_plotly_data():
     """reads csv from a the local file local_data.csv into a data_format and characters."""
