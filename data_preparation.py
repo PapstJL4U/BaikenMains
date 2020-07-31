@@ -23,7 +23,6 @@ def update_to_sheet_google(filename):
 
     try:
         df = pd.read_csv(filename + '.csv')
-        print(len(df.columns), len(df.index))
         for col in range(len(df.columns)):
             worksheet.update_cell(1, col + 1, df.columns[col])
             for row in range(len(df.index)):
