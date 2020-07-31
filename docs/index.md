@@ -61,3 +61,11 @@ The same as above, but vertical:
 ![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_unique_colours_False.png)
 
 ![Display](https://papstjl4u.github.io/BaikenMains/generate_v_graph_red_on_gray_False.png)
+
+
+
+### Source
+
+hand counting lobby avatars: [csv](https://docs.google.com/spreadsheets/d/1yRZjkEPRnziN0VzwOlSXORMFJoOlW9PASa4OfxvJkeE/edit?usp=sharing)
+
+In the ggxxrdcom sheet you can find additional "daily" scraped information from http://www.ggxrd.com/pg2/usage_rate_view.php
