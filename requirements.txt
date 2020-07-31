@@ -1,2 +1,5 @@
 plotly~=4.9.0
 pandas~=1.0.5
+beautifulsoup4~=4.9.1
+gspread~=3.6.0
+oauth2client~=4.1.3
