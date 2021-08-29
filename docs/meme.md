@@ -34,4 +34,5 @@ However, she was played a lot in other skill groups.
 
 
 ## website: 
-[ggxrd.com](http://www.ggxrd.com/pg2/usage_rate_view.php) whois:ARC SYSTEM WORKS with "梅喧"=Baiken
+
+[ggxrd.com](http://www.ggxrd.com/pg2/usage_rate_view.php) with "梅喧"=Baiken; whois:ARC SYSTEM WORKS 
