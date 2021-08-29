@@ -26,14 +26,12 @@ However, she was played a lot in other skill groups.
 
 ## 17.10.2019
 
-![Display](https://papstjl4u.github.io/BaikenMains/mik_stream/CharUsageJonisan17_10_2019stream)
+![Display](https://papstjl4u.github.io/BaikenMains/mik_stream/CharUsageJonisan17_10_2019stream.png)
 
 ## 14.06.2020
 
-![Display](https://papstjl4u.github.io/BaikenMains/mik_stream/CharUsageJonisan14_06_2020stream)
+![Display](mik_stream/CharUsageJonisan14_06_2020stream.png)
 
 
 ## website: 
-http://www.ggxrd.com/pg2/usage_rate_view.php 
-
-whois:ARC SYSTEM WORKS with "梅喧"=Baiken
+![ggxrd.com](http://www.ggxrd.com/pg2/usage_rate_view.php) whois:ARC SYSTEM WORKS with "梅喧"=Baiken
